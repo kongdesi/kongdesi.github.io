@@ -87,16 +87,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="adapter是连接后端数据与前端（UI）显示之间的桥梁，在常见的View(List View,Grid View)等地方都需要用到Adapter，以下为adapter，Data,View三者之间的关系：2.目前常用的adapter有四种，分别是BaseAdapter;SimpleAdapter;ArrayAdapter;SimpleCursorAdapter&amp;gt;   （BaseAdapte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://DolphKon.coding.io/2017/05/29/hello-world/index.html">
+<meta property="og:title" content="Android之Adapter用法总结（BaseAdapter）">
+<meta property="og:url" content="http://DolphKon.coding.io/2017/05/29/android_adapter/index.html">
 <meta property="og:site_name" content="DolphKon&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-29T09:37:20.572Z">
+<meta property="og:description" content="adapter是连接后端数据与前端（UI）显示之间的桥梁，在常见的View(List View,Grid View)等地方都需要用到Adapter，以下为adapter，Data,View三者之间的关系：2.目前常用的adapter有四种，分别是BaseAdapter;SimpleAdapter;ArrayAdapter;SimpleCursorAdapter&amp;gt;   （BaseAdapte">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/64610BB447924D1E97493427BAAA5D3D?method=download&shareKey=2dc6e4fc904f83b01de8b8794845758d">
+<meta property="og:updated_time" content="2017-05-29T10:13:18.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Android之Adapter用法总结（BaseAdapter）">
+<meta name="twitter:description" content="adapter是连接后端数据与前端（UI）显示之间的桥梁，在常见的View(List View,Grid View)等地方都需要用到Adapter，以下为adapter，Data,View三者之间的关系：2.目前常用的adapter有四种，分别是BaseAdapter;SimpleAdapter;ArrayAdapter;SimpleCursorAdapter&amp;gt;   （BaseAdapte">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/64610BB447924D1E97493427BAAA5D3D?method=download&shareKey=2dc6e4fc904f83b01de8b8794845758d">
 
 
 
@@ -124,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://DolphKon.coding.io/2017/05/29/hello-world/"/>
+  <link rel="canonical" href="http://DolphKon.coding.io/2017/05/29/android_adapter/"/>
 
 
 
 
 
-  <title> Hello World | DolphKon's Blog </title>
+  <title> Android之Adapter用法总结（BaseAdapter） | DolphKon's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -249,7 +251,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://DolphKon.coding.io/2017/05/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://DolphKon.coding.io/2017/05/29/android_adapter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DolphKon">
@@ -270,7 +272,7 @@
             
             
               
-                Hello World
+                Android之Adapter用法总结（BaseAdapter）
               
             
           </h1>
@@ -285,7 +287,7 @@
               
                 <span class="post-meta-item-text">Posté le</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-29T17:37:20+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-29T18:11:38+08:00">
                 2017-05-29
               </time>
             
@@ -321,15 +323,13 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <blockquote>
+<p>adapter是连接后端数据与前端（UI）显示之间的桥梁，在常见的View(List View,Grid View)等地方都需要用到Adapter，以下为adapter，Data,View三者之间的关系：<img src="http://note.youdao.com/yws/api/personal/file/64610BB447924D1E97493427BAAA5D3D?method=download&amp;shareKey=2dc6e4fc904f83b01de8b8794845758d" alt="image"><br>2.目前常用的adapter有四种，分别是BaseAdapter;SimpleAdapter;ArrayAdapter;SimpleCursorAdapter&gt;</p>
+</blockquote>
+<hr>
+<h6 id="（BaseAdapter"><a href="#（BaseAdapter" class="headerlink" title="（BaseAdapter)"></a>（BaseAdapter)</h6><blockquote>
+<p>BaseAdapter:基础数据适配器，能够实现很多自己喜欢的列表，主要用途是将一些数据传递到例如Listview等UI显示组件。继承了接口类Adapter，自由度高，可以修改的地方多。</p>
+</blockquote>
 
       
     </div>
@@ -366,15 +366,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/29/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/29/android_adapter/" rel="prev" title="Android之Adapter用法总结（BaseAdapter）">
-                Android之Adapter用法总结（BaseAdapter） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -485,7 +485,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#（BaseAdapter"><span class="nav-number">1.</span> <span class="nav-text">（BaseAdapter)</span></a></li></ol></div>
             
 
           </div>
